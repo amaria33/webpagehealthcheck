@@ -5,13 +5,32 @@ import Link from "next/link";
 import { Fragment } from "react";
 
 import pageMockup from "../../assets/page.jpeg";
+import heroLaptopMock from "../../assets/laptop1.png";
 
 const starterMockup = "/starter-mockup.svg";
-const announcementMessages = [
-  "Special Release • Limited Time",
-  "50% Off Starter Site • Same Full Service",
-  "Launch-Ready In 7 Days • Guided Experience",
+const faqItems = [
+  {
+    question: "When does the sale end?",
+    answer:
+      "The discount disappears the moment the reserved Starter Site slots are booked. I'll update you right away when we're down to the last slot.",
+  },
+  {
+    question: "Can I reserve my spot now and start later?",
+    answer:
+      "Absolutely. Secure your 50% off today and we'll schedule your build within the next 60 days — plenty of time to gather content.",
+  },
+  {
+    question: "Is this the same Starter Site package?",
+    answer:
+      "Yes. You're receiving the complete Starter Site experience, the same attention to detail, and the same launch support — only the price is lower for a short window.",
+  },
+  {
+    question: "Can I upgrade or add pages later?",
+    answer:
+      "Of course. We can grow your site into a multi-page experience whenever you're ready. Your Starter Site becomes the perfect foundation.",
+  },
 ];
+
 const addOnGroups = [
   {
     title: "Launch Prep Essentials",
@@ -72,26 +91,12 @@ export default function StarterSitePromoPage() {
     <div className="min-h-screen bg-gradient-to-br from-[#FFF9F6] via-[#FFFFFF] to-[#F4C2C2]/20 text-[#2B2B2B]">
       <main className="overflow-hidden">
         {/* Announcement Bar */}
-        <div className="bg-[#2B2B2B] text-white text-sm md:text-base">
-          <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-2 px-6 py-3 text-center md:flex-row md:text-left">
-            <span className="font-semibold uppercase tracking-[0.25em] text-white/70">
-              Starter Site Alert
+        <div className="bg-[#3A2F32] text-white/95">
+          <div className="mx-auto flex max-w-6xl items-center justify-center gap-3 px-6 py-3 text-sm font-semibold text-white/80 md:text-base">
+            <span className="text-lg">🕒</span>
+            <span className="uppercase tracking-[0.2em]">
+              Special Release: Starter Sites 50% Off — Guided Build Included
             </span>
-            <div className="relative flex-1 overflow-hidden">
-              <div className="marquee flex items-center gap-6 whitespace-nowrap text-white/80">
-                {announcementMessages.concat(announcementMessages).map(
-                  (message, index) => (
-                    <span
-                      key={`${message}-${index}`}
-                      className="inline-flex items-center gap-2 rounded-full bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] md:text-sm"
-                    >
-                      <span className="h-1.5 w-1.5 rounded-full bg-white/70" />
-                      {message}
-              </span>
-                  )
-                )}
-              </div>
-            </div>
           </div>
         </div>
 
@@ -107,7 +112,7 @@ export default function StarterSitePromoPage() {
                 { href: "#process", label: "How It Works" },
                 { href: "#proof", label: "Client Wins" },
                 { href: "#faq", label: "FAQs" },
-                { href: "#book", label: "Book Now" },
+                { href: "#book", label: "Start My Site" },
               ].map(({ href, label }) => (
                 <a
                   key={href}
@@ -124,46 +129,41 @@ export default function StarterSitePromoPage() {
         {/* Hero Section */}
         <section id="overview" className="relative px-6 py-20 md:py-28">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(232,169,184,0.25),rgba(244,194,194,0)_55%)]" />
-          <div className="max-w-6xl mx-auto grid gap-12 md:grid-cols-[1.1fr,0.9fr] items-center">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-3 rounded-full border border-[#E8A9B8]/60 bg-white/80 px-4 py-2 text-sm font-medium shadow-sm">
-                <span className="rounded-full bg-[#E8A9B8] px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                  50% Off
-                </span>
-                <span>Starter Site Special • Now Just $150</span>
-              </div>
-
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 rounded-full border border-[#E8A9B8]/70 bg-white/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#E8A9B8] shadow-sm">
-                  Why Wait? Launch Week Starts Now
-                </div>
+          <div className="hero relative mx-auto grid min-h-[520px] max-w-6xl gap-12 items-center px-4 md:grid-cols-[1.1fr,0.9fr] md:px-6">
+            <div className="space-y-8 md:space-y-10">
+              <div className="hero-flex flex flex-col gap-8 md:items-start md:justify-between">
+                <div className="space-y-5 md:space-y-6 md:max-w-xl">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#E47DA0]">
+                    Starter Site, Done-For-You in 7 Days — Now 50% Off
+                  </p>
                 <h1 className="text-4xl font-bold leading-tight text-[#2B2B2B] md:text-5xl lg:text-6xl">
-                  Launch Your Starter Website Today
+                    No DIY, no guesswork. I write, build, and launch the site you're proud to share.
                 </h1>
-                <div className="inline-flex items-center gap-3 rounded-2xl border border-[#E8A9B8] bg-[#E8A9B8]/15 px-5 py-3 text-sm font-semibold uppercase tracking-[0.15em] text-[#E8A9B8] shadow-sm shadow-[#E8A9B8]/20 md:text-base">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#E8A9B8] text-white shadow-inner">
-                    !
-                  </span>
-                  <span className="text-[#2B2B2B]">
-                    Full Professional Build — Now Only $150
-                  </span>
+                  <p className="price-line pt-2 text-base text-[#555555] md:text-lg">
+                    Full professional build, now just $150.
+                  </p>
+                  <p className="text-base text-[#2B2B2B]/70 md:text-lg">
+                    For solopreneurs, creatives, and startup nonprofits ready to launch a professional one-page site — fast.
+                  </p>
+                  <p className="text-base font-semibold text-[#2B2B2B]/75">
+                    ⭐ Trusted by new founders and startup nonprofits — launch-ready in just 7 days.
+                  </p>
                 </div>
-                <p className="text-lg leading-relaxed text-[#2B2B2B]/75 md:text-xl">
-                  A polished one-page site tailored to your brand—connected, mobile-ready, and launched fast so you can show up with confidence.
-                </p>
-                <div className="flex flex-wrap items-center gap-3 text-sm font-semibold text-[#2B2B2B]/70">
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 shadow-sm">
-                    <span className="h-2 w-2 rounded-full bg-[#E8A9B8]" />
-                    No DIY. I write, build, and launch for you.
-                  </span>
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white/85 px-4 py-2 shadow-sm">
-                    <span className="h-2 w-2 rounded-full bg-[#D8B878]" />
-                    Bring your ideas—leave the tech to me.
-                  </span>
-                </div>
+                <div className="hero-art pointer-events-none md:self-start">
+                  <Image
+                    src={heroLaptopMock}
+                    alt=""
+                    width={520}
+                    height={360}
+                    className="hero-art-image drop-shadow-2xl"
+                    priority
+                    aria-hidden="true"
+                    loading="eager"
+                    fetchPriority="high"
+                  />
               </div>
-
-              <div className="flex flex-wrap items-center gap-4">
+                </div>
+              <div className="hero-cta flex flex-wrap items-center gap-4 md:-mt-8 md:flex-nowrap">
                 <Link
                   href="https://form.jotform.com/253147754374059"
                   className="inline-flex items-center justify-center rounded-lg bg-[#E8A9B8] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-[#E8A9B8]/40 transition-all hover:-translate-y-0.5 hover:bg-[#E8A9B8]/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D8B878]"
@@ -177,49 +177,54 @@ export default function StarterSitePromoPage() {
                   Talk With Ashley
                 </Link>
               </div>
-
-              <p className="text-sm font-medium text-[#2B2B2B]/60">
-                New to websites? I guide you from blank page to live launch—no experience required.
+              <p className="text-sm font-semibold text-[#2B2B2B]/70">
+                Trusted by new founders and startup nonprofits launching their first online presence.
               </p>
-
-              <div className="flex flex-wrap items-center gap-6 text-sm font-medium text-[#2B2B2B]/70">
-                <div className="flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 shadow-sm">
-                  <span className="h-2 w-2 animate-pulse rounded-full bg-[#D8B878]" />
-                  Only{" "}
-                  <strong className="font-semibold text-[#E8A9B8]">7</strong>{" "}
-                  discounted Starter Sites left
-                </div>
-                <div className="rounded-full bg-white/80 px-4 py-2 shadow-sm">
-                  Offer ends when slots are gone
-                </div>
+              <div className="urgency-bar inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold shadow-sm">
+                <span className="icon text-base">⚡</span>
+                <span>75% of discounted Starter Sites have been claimed — secure yours before pricing returns to $300.</span>
               </div>
-
-              <div className="space-y-3">
-                <div className="h-2 w-full overflow-hidden rounded-full bg-white/60 shadow-inner">
-                  <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-[#E8A9B8] via-[#F4C2C2] to-[#D8B878] transition-all" />
+              <div className="flex flex-wrap gap-3">
+                <p className="inline-flex items-center gap-2 rounded-full border border-[#E8A9B8]/50 bg-white/85 px-4 py-2 text-sm font-medium text-[#2B2B2B]/70 shadow-sm" id="slots-hero">
+                  <span className="h-2 w-2 rounded-full bg-[#D8B878]" />
+                  Only 7 discounted Starter Sites left this month.
+                </p>
+                <p className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#2B2B2B]/60 shadow-sm">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#E8A9B8]" />
+                  Reserve now & launch within a week
+                </p>
                 </div>
-                <div className="flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#2B2B2B]/60">
-                  <span>75% Of Sale Slots Claimed</span>
-                  <span className="inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 shadow-sm">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#D8B878]" />
-                    Book now to guarantee pricing
-                  </span>
-                </div>
+              <div className="space-y-3 rounded-2xl border border-[#E8A9B8]/40 bg-white/85 p-6 shadow-sm">
+                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-[#E8A9B8]">
+                  Not ready to launch yet?
+                </p>
+                <p className="text-base text-[#2B2B2B]/75">
+                  Get my free "Next Five Steps" guide - a quick checklist to prep your site launch like a pro.
+                </p>
+                <Link
+                  href="https://form.jotform.com/253148490064053"
+                  className="inline-flex items-center justify-center rounded-lg border border-[#E8A9B8] bg-white px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-[#E8A9B8] shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#D8B878] hover:text-[#D8B878] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9B8]"
+                >
+                  Join My Email List
+                </Link>
+                <p className="text-xs text-[#2B2B2B]/60">
+                  No spam. Just short, practical website launch tips once or twice a month.
+                </p>
               </div>
-
-              <div className="flex flex-wrap gap-4 text-sm text-[#2B2B2B]/70 md:text-base">
-                <div className="flex items-center gap-2 rounded-xl bg-white/80 px-4 py-3 shadow-sm">
-                  <span className="text-lg text-[#E8A9B8]">★</span>
-                  Now booking done-for-you Starter Sites
-                </div>
-                <div className="flex items-center gap-2 rounded-xl bg-white/80 px-4 py-3 shadow-sm">
-                  <span className="text-lg text-[#D8B878]">✓</span>
-                  Values-led, integrity-first partnership
-                </div>
-              </div>
+              <p className="text-sm font-medium text-[#2B2B2B]/60">
+                Warm, guided partnership from blank page to live launch—no experience required.
+              </p>
             </div>
 
             <div className="relative">
+              <Image
+                src={heroLaptopMock}
+                alt="Starter Site sample homepage on laptop"
+                width={520}
+                height={320}
+                className="absolute -top-16 right-[-6rem] hidden w-[420px] max-w-none md:block drop-shadow-2xl"
+                priority
+              />
               <div className="absolute -right-4 top-6 hidden h-72 w-72 rounded-full bg-[#E8A9B8]/20 blur-3xl md:block" />
               <div className="relative rounded-3xl border border-white/60 bg-white/95 p-6 shadow-2xl shadow-[#E8A9B8]/20 backdrop-blur">
                 <div className="space-y-6">
@@ -247,10 +252,6 @@ export default function StarterSitePromoPage() {
                         {
                           label: "1 round of edits included",
                           dot: "#F4C2C2",
-                        },
-                      {
-                        label: "Quick-start written guide with step-by-step tweaks",
-                        dot: "#E8A9B8",
                       },
                       ].map(({ label, dot }) => (
                         <li
@@ -298,7 +299,7 @@ export default function StarterSitePromoPage() {
                       href="https://form.jotform.com/253147754374059"
                       className="inline-flex w-full items-center justify-center rounded-xl bg-[#E8A9B8] px-6 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-[#E8A9B8]/40 transition-transform hover:-translate-y-0.5 hover:bg-[#E8A9B8]/90"
                     >
-                      Book My $150 Starter Site
+                    Start My Site
                     </Link>
                   <p className="text-sm font-medium text-[#2B2B2B]/60 text-center md:text-left">
                       Prefer to chat first?{" "}
@@ -320,8 +321,8 @@ export default function StarterSitePromoPage() {
           <div className="mx-auto grid max-w-5xl gap-4 rounded-3xl border border-[#F4C2C2]/50 bg-white/95 px-6 py-6 shadow-md shadow-[#E8A9B8]/20 text-sm font-semibold text-[#2B2B2B]/70 md:grid-cols-3 md:text-base">
             {[
               {
-                stat: "Fresh Start",
-                label: "Welcoming first founders into the Starter Site experience",
+                stat: "Early Partners",
+                label: "Welcoming first founders into the Starter Site experience with 1:1 support",
               },
               {
                 stat: "7 days",
@@ -551,18 +552,7 @@ export default function StarterSitePromoPage() {
                 Why I&apos;m Offering 50% Off Right Now
               </h2>
               <p className="text-lg text-[#2B2B2B]/75">
-                I&apos;m offering an introductory 50% off Starter Sites as I grow
-                the BuiltByAshley.com portfolio and partner with more small
-                business owners, creatives, and new founders.
-              </p>
-              <p className="text-lg text-[#2B2B2B]/75">
-                This limited-time offer lets you launch with confidence while I
-                refine my process, expand the portfolio, and craft more clean,
-                professional websites that convert.
-              </p>
-              <p className="text-lg text-[#2B2B2B]/75">
-                Once these discounted portfolio spots are filled, the investment
-                returns to the regular rate.
+                I&apos;m offering this 50% off Starter Site promotion as I expand the BuiltByAshley portfolio and partner with more small business owners, creatives, and startup nonprofits. This lets you launch confidently while I continue refining and showcasing beautiful, conversion-ready websites. Once these limited spots are filled, pricing returns to the standard rate.
               </p>
             </div>
 
@@ -708,43 +698,25 @@ export default function StarterSitePromoPage() {
                 className="inline-flex items-center justify-center gap-3 rounded-full bg-[#D8B878] px-10 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#2B2B2B] shadow-lg shadow-[#D8B878]/30 transition-all hover:-translate-y-0.5 hover:bg-[#D8B878]/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E8A9B8]"
               >
                 <span className="text-base md:text-lg">→</span>
-                <span>Book My Site</span>
+                <span>Start My Site</span>
               </Link>
               </div>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
-              {[
-                {
-                  question: "When does the sale end?",
-                  answer:
-                    "The discount disappears the moment the reserved Starter Site slots are booked. I’ll update you right away when we’re down to the last slot.",
-                },
-                {
-                  question: "Can I reserve my spot now and start later?",
-                  answer:
-                    "Absolutely. Secure your 50% off today and we’ll schedule your build within the next 60 days — plenty of time to gather content.",
-                },
-                {
-                  question: "Is this the same Starter Site package?",
-                  answer:
-                    "Yes. You’re receiving the complete Starter Site experience, the same attention to detail, and the same launch support — only the price is lower for a short window.",
-                },
-                {
-                  question: "Can I upgrade or add pages later?",
-                  answer:
-                    "Of course. We can grow your site into a multi-page experience whenever you’re ready. Your Starter Site becomes the perfect foundation.",
-                },
-              ].map(({ question, answer }) => (
-                <div
+            <div className="space-y-4">
+              {faqItems.map(({ question, answer }) => (
+                <details
                   key={question}
-                  className="rounded-2xl border border-[#F4C2C2]/50 bg-[#FFF9F6]/80 p-6 shadow-sm"
+                  className="group rounded-2xl border border-[#F4C2C2]/60 bg-[#FFF9F6]/80 px-5 py-4 shadow-sm transition"
                 >
-                  <h3 className="text-lg font-semibold text-[#2B2B2B]">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 text-left text-base font-semibold text-[#2B2B2B] marker:content-['']">
                     {question}
-                  </h3>
+                    <span className="text-xl text-[#E8A9B8] transition-transform duration-200 group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
                   <p className="mt-3 text-base text-[#2B2B2B]/75">{answer}</p>
-                </div>
+                </details>
               ))}
             </div>
           </div>
@@ -803,17 +775,17 @@ export default function StarterSitePromoPage() {
         {/* Closing CTA */}
         <section
           id="book"
-          className="px-6 py-20 md:py-24 bg-gradient-to-br from-[#E8A9B8] via-[#F4C2C2] to-[#D8B878] text-white"
+          className="px-6 py-20 md:py-24 bg-gradient-to-br from-[#E8A9B8] via-[#E79CB2] to-[#D39A72] text-white"
         >
           <div className="mx-auto flex max-w-4xl flex-col gap-10 text-center md:text-left">
             <div className="space-y-4">
             <h2 className="text-3xl font-bold md:text-4xl">
                 Secure Your $150 Starter Site Before It&apos;s Gone
             </h2>
-              <p className="text-lg text-white/90 md:text-xl">
-                Only a handful of discounted Starter Sites are open right now.
-                Claim yours and we&apos;ll launch a conversion-ready home that
-                attracts your first clients.
+              <p className="text-lg font-semibold text-white/95 md:text-xl">
+                Only <span className="font-bold">7 discounted Starter Sites</span> left this month. Claim yours and
+                we&apos;ll launch a conversion-ready home that attracts your first
+                clients.
             </p>
             </div>
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
@@ -821,7 +793,7 @@ export default function StarterSitePromoPage() {
                 href="https://form.jotform.com/253147754374059"
                 className="inline-flex items-center justify-center rounded-full bg-white px-8 py-4 text-sm font-semibold uppercase tracking-[0.25em] text-[#E8A9B8] shadow-lg shadow-black/10 transition-all hover:-translate-y-0.5 hover:bg-[#FFF9F6]"
               >
-                Secure My $150 Site
+                Start My Site
               </Link>
               <Link
                 href="mailto:hello@builtbyashley.com"
@@ -830,60 +802,146 @@ export default function StarterSitePromoPage() {
                 Ask A Question
               </Link>
             </div>
-            <div className="space-y-3 rounded-2xl bg-white/10 px-6 py-5 text-left text-sm text-white/85 md:flex md:items-start md:justify-between md:gap-6 md:text-base">
-              <div className="flex items-center gap-3 font-semibold uppercase tracking-[0.3em]">
-                <span className="inline-flex h-3 w-3 rounded-full bg-[#D8B878]" />
-                What You Get With Your Starter Site
-              </div>
-              <ul className="space-y-2 text-sm leading-relaxed md:text-base">
-                <li>
-                  Secure payment and intake handled in one form—no invoice
-                  juggling.
+            <div className="space-y-3 rounded-2xl bg-white/15 px-6 py-6 text-left text-sm text-white/85 md:text-base">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/90 md:text-base">
+                ⭐ What You Get With Your Starter Site
+              </p>
+              <ul className="space-y-2 md:space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="text-lg">✅</span>
+                  <span>One simple payment — no invoices to juggle</span>
                 </li>
-                <li>
-                  30-day post-launch support, training, and a satisfaction
-                  check-in are included.
+                <li className="flex items-start gap-3">
+                  <span className="text-lg">💬</span>
+                  <span>30-day post-launch support + check-in</span>
                 </li>
-                <li>
-                  We launch within 7 days of receiving your assets, guaranteed.
-                  If we ever exceed 10 business days, you earn a credit toward
-                  future updates.
+                <li className="flex items-start gap-3">
+                  <span className="text-lg">⚡</span>
+                  <span>7-day guaranteed launch (or you earn a credit)</span>
                 </li>
               </ul>
-              <p className="text-xs text-white/70 md:text-sm">
-                The 7-day launch promise keeps us moving quickly; the 10-business-day
-                guarantee simply adds a safety net in case your review or edits
-                need an extra day.
-              </p>
             </div>
-            <p className="text-sm text-white/80 md:text-base">
-              Prefer a personal touch? Email{" "}
+            <p className="flex items-center gap-2 text-sm text-white/80 md:text-base">
+              Prefer a personal touch? <span>📧</span>
               <Link
                 href="mailto:hello@builtbyashley.com"
                 className="font-semibold underline decoration-white/60 underline-offset-4 hover:decoration-white"
               >
                 hello@builtbyashley.com
-              </Link>{" "}
-              and I&apos;ll reply within one business day.
+              </Link>
             </p>
           </div>
         </section>
       </main>
-
       <style jsx>{`
-        .marquee {
-          display: inline-flex;
-          min-width: 200%;
-          animation: marquee 16s linear infinite;
+        .hero {
+          position: relative;
+          padding-bottom: 4rem;
         }
 
-        @keyframes marquee {
+        .hero-art {
+          position: absolute;
+          top: clamp(3.5rem, 9vh, 5.25rem);
+          right: 0;
+          width: min(44vw, 540px);
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-start;
+          pointer-events: none;
+        }
+
+        .hero-art::before {
+          content: "";
+          position: absolute;
+          inset: auto -8% -8% -8%;
+          background: radial-gradient(
+            circle at 50% 60%,
+            rgba(239, 192, 206, 0.35),
+            transparent 70%
+          );
+          filter: blur(18px);
+          z-index: -1;
+        }
+
+        .hero-art-image {
+          width: 100%;
+          max-width: 540px;
+          height: auto;
+          object-fit: contain;
+        }
+
+        .hero-flex {
+          flex-direction: column;
+        }
+
+        @media (min-width: 901px) {
+          .hero-flex {
+            flex-direction: row;
+          }
+        }
+
+        @media (max-width: 900px) {
+          .hero {
+            min-height: auto;
+          }
+
+          .hero-art {
+            position: static;
+            width: 100%;
+            margin-top: 1.25rem;
+            text-align: center;
+            justify-content: center;
+          }
+
+          .hero-art::before {
+            display: none;
+          }
+
+          .hero-art-image {
+            max-width: 520px;
+            margin: 0 auto;
+            display: block;
+          }
+
+          .hero-cta {
+            flex-direction: column;
+            gap: 0.75rem;
+          }
+        }
+
+        .hero-art img {
+          animation: floatIn 0.7s ease-out 0.2s both;
+        }
+
+        @keyframes floatIn {
           0% {
-            transform: translateX(0);
+            opacity: 0;
+            transform: translateY(20px) scale(0.985);
           }
           100% {
-            transform: translateX(-50%);
+            opacity: 1;
+            transform: translateY(0) scale(1);
           }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero-art img {
+            animation: none;
+          }
+        }
+
+        .price-line {
+          margin-bottom: 1.1rem;
+        }
+
+        .urgency-bar {
+          background: #fdecef;
+          border: 1px solid #f6cfe0;
+          color: #5a4d52;
+        }
+
+        .urgency-bar .icon {
+          opacity: 0.9;
         }
       `}</style>
     </div>
