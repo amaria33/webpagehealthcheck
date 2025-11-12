@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,6 +29,25 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <footer className="border-t border-black/5 bg-white/90 py-8 text-center text-sm text-[#2B2B2B]/70 dark:border-white/10 dark:bg-black/60 dark:text-[#FFF9F6]/70">
+          <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 px-6 md:flex-row md:justify-between">
+            <span>© {new Date().getFullYear()} BuiltByAshley.com. All rights reserved.</span>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="mailto:hello@builtbyashley.com"
+                className="font-semibold text-[#E8A9B8] transition hover:text-[#D8B878]"
+              >
+                Contact
+              </Link>
+              <Link
+                href="/privacy"
+                className="font-semibold text-[#E8A9B8] transition hover:text-[#D8B878]"
+              >
+                Privacy &amp; Data Use
+              </Link>
+            </div>
+          </div>
+        </footer>
       </body>
     </html>
   );
