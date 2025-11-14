@@ -37,6 +37,35 @@ const snapshotFeatures = [
   "One thoughtful round of refinements included",
 ];
 
+const BuiltByAshleyLogo = () => (
+  <div className="flex items-center gap-3">
+    <span className="flex h-10 w-10 items-center justify-center rounded-2xl border-2 border-[#E8A9B8] bg-white text-[#E8A9B8] shadow-sm md:h-12 md:w-12">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        className="h-5 w-5 md:h-6 md:w-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points="8 6 3 12 8 18" />
+        <polyline points="16 6 21 12 16 18" />
+        <line x1="12" x2="12" y1="4" y2="20" />
+      </svg>
+    </span>
+    <div className="flex flex-col leading-tight">
+      <span className="text-xs font-semibold uppercase tracking-[0.35em] text-[#E8A9B8] md:text-[11px]">
+        BuiltBy
+      </span>
+      <span className="text-lg font-semibold text-[#2B2B2B] md:text-xl">
+        Ashley
+      </span>
+    </div>
+  </div>
+);
+
 const processSteps = [
   {
     title: "Step 1 · Book & Brief",
@@ -173,9 +202,15 @@ export default function StarterSitePromoPage() {
 
         {/* Quick Nav */}
         <nav className="sticky top-0 z-20 bg-white/92 shadow-sm backdrop-blur">
-          <div className="mx-auto flex w-full max-w-[600px] flex-wrap items-center justify-center gap-3 px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#2B2B2B]/70 md:max-w-6xl md:justify-between md:px-8 md:text-sm">
-            <span className="tracking-[0.32em] text-[#E8A9B8]">Explore</span>
-            <div className="flex flex-wrap items-center gap-2 md:gap-3">
+          <div className="mx-auto flex w-full max-w-[600px] flex-wrap items-center justify-between gap-3 px-5 py-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#2B2B2B]/70 md:max-w-6xl md:px-8 md:text-sm">
+            <Link
+              href="/"
+              className="flex items-center gap-3 rounded-full px-2 py-1 text-left text-[#2B2B2B] transition hover:text-[#E8A9B8] md:px-0 md:py-0"
+              aria-label="Back to BuiltByAshley homepage"
+            >
+              <BuiltByAshleyLogo />
+            </Link>
+            <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
               {navLinks.map(({ href, label }) => (
                 <a
                   key={href}
