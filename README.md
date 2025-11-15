@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Website Health Check Tool
+
+An AI-powered website analysis tool that provides instant UX, copywriting, and SEO insights. This Next.js 14 application offers both a free demo and a paid full version with complete analysis.
+
+## Features
+
+- 🎨 **Full UX Analysis** - Navigation, layout, and user experience review
+- ✍️ **Copy Clarity Score** - Messaging and CTA effectiveness analysis
+- 🔍 **SEO Breakdown** - Meta tags, headings, and SEO factors review
+- 📊 **Health Score** - Overall website rating (0-100)
+- 💳 **Stripe Integration** - Secure payment processing for full reports
+- 🆓 **Demo Mode** - Free limited analysis for testing
+
+## Project Structure
+
+```
+app/
+├── page.tsx           # Full report page (main health check tool)
+├── demo/page.tsx      # Free demo with limited results
+├── sell/page.tsx      # Sales landing page
+├── success/page.tsx   # Payment success page
+├── terms/page.tsx     # Terms of Service
+├── privacy/page.tsx   # Privacy Policy
+└── api/
+    ├── analyze/       # AI-powered website analysis endpoint
+    └── checkout/      # Stripe checkout session creation
+components/
+└── NavBar.tsx         # Global navigation component
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ installed
+- OpenAI API key
+- Stripe account and secret key
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory with the following variables:
+
+```bash
+# OpenAI API Key for website analysis
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Stripe Secret Key for payment processing
+STRIPE_SECRET_KEY=your_stripe_secret_key_here
+
+# Base URL for your application (used in Stripe redirects)
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
+
+### Installation
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/` - Full website health check tool
+- `/demo` - Free demo with limited results
+- `/sell` - Sales landing page with pricing and features
+- `/success` - Payment confirmation page
+- `/terms` - Terms of Service
+- `/privacy` - Privacy Policy
 
-## Learn More
+## Brand Colors
 
-To learn more about Next.js, take a look at the following resources:
+The application uses a consistent color palette:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Background Cream: `#FFF6F3`
+- Light Blush Pink: `#F7CDD7`
+- Rose Outline Pink: `#E7A5B5`
+- Hero Gradient Pink (mid): `#DCA0B0`
+- Hero Gradient Pink (deep): `#C08090`
+- Light Gray Text: `#C0C0C0`
+- Soft Black Text: `#3A3A3A`
+- Accent Gold: `#D6B36A`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## API Endpoints
 
-## Deploy on Vercel
+### POST `/api/analyze`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Analyzes a website's HTML and returns UX, copy, and SEO insights.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Request Body:**
+
+```json
+{
+  "url": "https://example.com"
+}
+```
+
+**Response:**
+
+```json
+{
+  "score": 85,
+  "ux": "UX analysis text...",
+  "copy": "Copy analysis text...",
+  "seo": "SEO analysis text...",
+  "recommendations": [{ "item": "Recommendation text", "impact": "high" }]
+}
+```
+
+### POST `/api/checkout`
+
+Creates a Stripe Checkout session for purchasing the full report.
+
+**Response:**
+
+```json
+{
+  "url": "https://checkout.stripe.com/..."
+}
+```
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Import your repository in Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy
+
+### Environment Variables for Production
+
+Make sure to set these in your hosting platform:
+
+- `OPENAI_API_KEY`
+- `STRIPE_SECRET_KEY`
+- `NEXT_PUBLIC_BASE_URL` (your production URL)
+
+## Technology Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **AI:** OpenAI GPT-4
+- **Payments:** Stripe
+- **Deployment:** Vercel
+
+## License
+
+This project is set up as a digital product for sale.
+# webpagehealthcheck
